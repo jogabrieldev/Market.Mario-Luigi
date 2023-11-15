@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="img/man_expression_mustache_face_emoticon_emoji_icon_258677.png"
+        type="image/x-icon">
+    <title> Services Mario Bros</title>
+    <style>
+        * {
+            font-family: 'Oxanium', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: space-evenly;
+            /*para alinhar elementos ao longo do eixo principal*/
+        }
+
+        .logo {
+            width: 300px;
+        }
+
+        #personagens {
+            height: 600px;
+        }
+
+        #caixa.principal {
+            width: 40%;
+        }
+
+        .video-mario {
+            position: fixed;
+            top: 0;
+            z-index: -1;
+            /*para o video ficar na parte da frente ou na parte de tras do seu site valor negativo atras valor positivo a frente*/
+            width: 100%;
+            height: 100%;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            min-width: 100%;
+            /*minimo de altura*/
+            min-height: 100%;
+            /*minimo de largura*/
+
+        }
+
+        .mascara-video {
+            height: 100%;
+            /*altura*/
+            width: 100%;
+            /*largura*/
+            position: fixed;
+            /*posição fixada*/
+            top: 0;
+            background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+        }
+
+        p {
+            color: white;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .botao {
+            background-color: red;
+            color: white;
+            width: 200px;
+            height: 40px;
+            border: none;
+            border-radius: 5 px;
+            cursor: pointer;
+
+        }
+
+        .fale-conosco {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            border: none;
+            border-radius: 20px;
+            gap: 22px;
+            position: fixed;
+            left: -300px;
+            transition: left 1s linear;
+            z-index: 4;
+
+        }
+
+        .script {
+            z-index: +1;
+            color: black;
+        }
+
+        input {
+            height: 35px;
+            border-radius: 10px;
+        }
+
+        textarea {
+            height: 120px;
+            border-radius: 10px;
+            padding: 35px;
+            outline-color: chartreuse;
+        }
+
+        button {
+            height: 40px;
+            border-radius: 10px;
+            background-color: red;
+            cursor: pointer;
+        }
+
+        .palavra {
+            padding-top: 0;
+        }
+
+        .mascara-form {
+            visibility: visible;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+            z-index: 3;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-mario">
+        <video src="img/video.mp4" autoplay muted loop></video>
+        <div class="mascara-video"></div>
+    </div>
+    <div id="caixa.principal">
+        <img src="img/logo.png" alt="logo do super mario" class="logo">
+        <p> Encanadores Mario & Luigi- resolvendo seus problemas com estilo!</p>
+        <p>Você ja se encontrou em uma situação de emergencia?<br>
+            Vazamentos inesperados, canos entupitos ou torneiras <br>
+            que nao param de pingar? Não se preucupe purque estamos <br>
+            aqui para salvar o dia! Apresentamos a vocês os encanadores <br>
+            nais famosos do reino dos cogumelos - Mario e Luigi
+        </p>
+        <button class="botao" onclick="clicarBotao()">Fale conosco</button>
+    </div>
+    <img src="img/mario.png" alt="imagem do Mario" id="personagens">
+    <form class="fale-conosco" action="https://formsubmit.co/joaog4030@gmail.com" method="POST">
+        <input placeholder="Seu nome" type="text" name="nome">
+        <input placeholder="Seu telefone" type="tel" name="telefone">
+        <textarea placeholder="Digite seu problema aqui" name="info"></textarea>
+        <button onclick="sumirFormulario()">Enviar formulário</button>
+    </form>
+    
+    <script src="index.js"></script>
+</body>
+
+</html>
